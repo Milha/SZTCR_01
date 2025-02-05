@@ -1,0 +1,36 @@
+﻿@model List<SZTCR_01.Models.Domain.Radnik>
+
+@{
+}
+
+<div>
+    <h2 class="display-3">Lista svih zaposlenih</h2>
+</div>
+
+<div class="container py-5">
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+             <thead>
+                 <tr>
+                     <td>Ime</td>
+                     <td>Prezime</td>
+                     <td>Pozicija</td>
+                 </tr>
+             </thead>
+             <tbody>
+                 @foreach(var radnik in Model) {
+                     <tr>
+                         <td>@radnik.Ime</td>
+                         <td>@radnik.Prezime</td>
+                         <td>@radnik.Pozicija</td>
+                     </tr>
+                 }
+             </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nema nadjenih radnika!</p>
+    }
+</div>

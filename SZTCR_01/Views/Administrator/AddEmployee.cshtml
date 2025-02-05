@@ -1,0 +1,28 @@
+﻿@model SZTCR_01.Models.ViewModels.AddEmployeeRequest
+
+@{
+}
+
+<div>
+    <h2 class="display-3">Dodaj zaposlenog</h2>
+</div>
+
+<div class="container py-5">
+    <form method="post">
+        <div class="form-group mb-3 w-75">
+            <label class="form-label" for="ime">Unesite ime</label>
+            <input class="form-control" name="ime" id="ime" asp-for="Ime"/>
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label" for="prezime">Unesite prezime</label>
+            <input class="form-control" name="prezime" id="prezime" asp-for="Prezime" />
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label" for="pozicija">Pozicija</label>
+            <input class="form-control" name="pozicija" id="pozicija" asp-for="Pozicija"/>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-secondary">Posalji</button>
+        </div>
+    </form>
+</div>
