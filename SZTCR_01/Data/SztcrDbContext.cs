@@ -11,5 +11,7 @@ namespace SZTCR_01.Data
         }
 
         public DbSet<Radnik> Radnici { get; set; }
+
+        public DbSet<Dobavljac> Dobavljaci { get; set; }
     }
 }

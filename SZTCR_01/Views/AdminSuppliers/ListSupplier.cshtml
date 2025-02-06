@@ -1,0 +1,38 @@
+﻿@model List<SZTCR_01.Models.Domain.Dobavljac>
+
+@{
+}
+
+<div>
+    <h2 class="display-3">Lista svih dobaljaca</h2>
+</div>
+
+<div class="container">
+    @if(Model != null && Model.Any()) {
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Naziv dobavljaca</td>
+                    <td>Adresa dobavljaca</td>
+                    <td>Email dobavljaca</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var dobav in Model) {
+                    <tr>
+                        <td>@dobav.NazivDobavljaca</td>
+                        <td>@dobav.AdresaDobavljaca</td>
+                        <td>@dobav.EmailDobavljaca</td>
+                        <td>
+                            <a class="btn btn-dark p-1" asp-area="" asp-controller="AdminSuppliers" asp-action="EditSupplier"
+                            asp-route-id="@dobav.Id"
+                            >Izmeni</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    } else {
+        <p>Nazalost nemamo dobavljaca za prikazivanje</p>
+    }
+</div>

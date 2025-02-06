@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SZTCR_01.Data;
 
@@ -11,9 +12,11 @@ using SZTCR_01.Data;
 namespace SZTCR_01.Migrations
 {
     [DbContext(typeof(SztcrDbContext))]
-    partial class SztcrDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250205153835_Add Dobavljac Domain")]
+    partial class AddDobavljacDomain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,12 +32,15 @@ namespace SZTCR_01.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AdresaDobavljaca")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmailDobavljaca")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NazivDobavljaca")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
