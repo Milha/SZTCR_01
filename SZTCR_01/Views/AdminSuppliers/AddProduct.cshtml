@@ -1,0 +1,29 @@
+﻿@model SZTCR_01.Models.ViewModels.AddProductRequest
+@{
+}
+
+<div>
+    <h2 class="display-3">Dodaj Proizvod</h2>
+</div>
+<div class="container py-5">
+    <form method="post">
+        <div class="form-group mb-3 w-75">
+            <div class="mb-3">
+                <label class="form-label">Dobavljaca</label>
+                <input type="text" id="idDobav" class="form-control" asp-for="IdDobavljaca" readonly/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nazvi dobavljaca</label>
+                <input type="text" id="nazivDobav" class="form-control" asp-for="NazivProizvoda" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Kolicina</label>
+                <input type="number" id="kolicina" class="form-control" asp-for="Kolicina" />
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-secondary">Dodaj proizvod</button>
+            </div>
+        </div>
+    </form>
+</div>
+
