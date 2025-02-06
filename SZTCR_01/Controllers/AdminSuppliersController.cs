@@ -91,5 +91,44 @@ namespace SZTCR_01.Controllers
 
             return RedirectToAction("EditSupplier", new { id = editSupplierRequest.Id });
         }
+
+        [HttpGet]
+        public IActionResult AddProduct(Guid idDobav)
+        {
+            var dobav = sztcrDbContext.Dobavljaci.FirstOrDefault(x => x.Id == idDobav);
+            
+
+            if (dobav != null)
+            {
+                var addProductRequest = new AddProductRequest
+                {
+                    IdDobavljaca = dobav.Id,
+                    NazivProizvoda = "",
+                    Kolicina = 1
+                };
+
+                return View(addProductRequest);
+
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddProduct(AddProductRequest addProductRequest)
+        {
+            var dobav = new Proizvodi
+            {
+                IdDobavljaca = addProductRequest.IdDobavljaca.ToString(),
+                NazivProizvoda = addProductRequest.NazivProizvoda,
+                Kolicina = addProductRequest.Kolicina,
+            };
+
+            sztcrDbContext.Proizvodi.Add(dobav);
+            sztcrDbContext.SaveChanges();
+            
+
+            return RedirectToAction("ListSupplier");
+        }
     }
 }
